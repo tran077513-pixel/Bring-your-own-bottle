@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bring Your Own Bottle — Refill Today. Reduce Tomorrow.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2FAF6;--surface:#FFFFFF;--ink:#10261D;--muted:#4A6358;
+  --green:#1F8A4C;--deep:#0F3D2E;--aqua:#BFE9DC;--line:#CFE5DA;--onDeep:#F2FAF6;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0B1F17;--surface:#12301F;--ink:#E6F4EC;--muted:#9DB8A9;--green:#4CC17E;--deep:#071810;--aqua:#1C4B3A;--line:#1F4A35;--onDeep:#E6F4EC}}
+:root[data-theme="dark"]{--bg:#0B1F17;--surface:#12301F;--ink:#E6F4EC;--muted:#9DB8A9;--green:#4CC17E;--deep:#071810;--aqua:#1C4B3A;--line:#1F4A35;--onDeep:#E6F4EC}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 Figtree,system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;line-height:1.08;margin:0 0 .5em;letter-spacing:-.02em}
+h1{font-size:clamp(2.6rem,8vw,5.2rem);font-weight:800}
+h2{font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:800}
+h3{font-size:1.25rem;font-weight:600}
+p{margin:0 0 1em;max-width:62ch}
+a{color:var(--green)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+section{padding:4.5rem 0}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;gap:1rem;flex-wrap:wrap}
+.brand{font:800 1.15rem "Bricolage Grotesque",sans-serif;color:var(--ink);text-decoration:none}
+nav ul{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav ul a{color:var(--muted);text-decoration:none;font-weight:500}
+nav ul a:hover{color:var(--green)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:2rem;align-items:center;padding:3rem 0 5rem}
+.hero .lead{font-size:1.25rem;color:var(--muted)}
+.btn{display:inline-block;background:var(--green);color:#fff;font-weight:600;padding:.85rem 1.5rem;border-radius:999px;text-decoration:none}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line);margin-left:.5rem}
+.bottle{width:100%;max-width:260px;justify-self:center}
+.water{transform-origin:bottom;animation:fill 2.2s ease-out both}
+@keyframes fill{from{transform:scaleY(.08)}to{transform:scaleY(1)}}
+@media (prefers-reduced-motion:reduce){.water{animation:none}html{scroll-behavior:auto}}
+/* bands */
+.deep{background:var(--deep);color:var(--onDeep)}
+.deep p{color:var(--onDeep);opacity:.88}
+.tint{background:var(--aqua)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
+.facts li{padding-left:1.4rem;position:relative}
+.facts li::before{content:"";position:absolute;left:0;top:.7em;width:.7rem;height:.7rem;border-radius:50% 50% 50% 0;background:var(--green);transform:rotate(-45deg)}
+/* steps: a real sequence */
+.steps{list-style:none;counter-reset:s;margin:2rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.4rem}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--green);color:#fff;font-weight:700;margin-bottom:.8rem}
+.steps h3{font-size:1.1rem;margin-bottom:.3em}.steps p{margin:0;color:var(--muted);font-size:.98rem}
+.reasons{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+.reason{border-left:5px solid var(--green);padding:.4rem 0 .4rem 1.3rem}
+.qa{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem}
+.qa div{background:var(--surface);border-radius:18px;padding:1.5rem;border:1px solid var(--line)}
+.qa strong{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:1.1rem;margin-bottom:.4rem}
+.src{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:1rem}
+.src li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.3rem}
+.src b{display:block}
+.note{font-size:.95rem;color:var(--muted);border-top:1px solid var(--line);padding-top:1rem;margin-top:2rem}
+.cta{text-align:center}.cta p{margin-inline:auto}
+.cta .btn{background:#fff;color:var(--deep)}
+footer{padding:2rem 0;color:var(--muted);font-size:.92rem;text-align:center}
+@media (max-width:760px){.hero,.two,.reasons,.qa{grid-template-columns:1fr}.bottle{max-width:170px;order:-1;justify-self:start}.btn.ghost{margin:.6rem 0 0}section{padding:3rem 0}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <nav aria-label="Main">
+    <a class="brand" href="#top">Bring Your Own Bottle</a>
+    <ul>
+      <li><a href="#problem">The problem</a></li>
+      <li><a href="#trial">The trial</a></li>
+      <li><a href="#why">Why it matters</a></li>
+      <li><a href="#evidence">Evidence</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+<div class="wrap hero">
+  <div>
+    <h1>Refill Today. Reduce Tomorrow.</h1>
+    <p class="lead">One reusable bottle can replace hundreds of single-use plastic bottles over its lifetime. Let's make that our school's everyday habit, starting with a one-month trial.</p>
+    <p><a class="btn" href="#trial">See the one-month trial</a><a class="btn ghost" href="#problem">Why it matters</a></p>
+  </div>
+  <svg class="bottle" viewBox="0 0 120 280" role="img" aria-label="Reusable water bottle filling with water">
+    <defs><clipPath id="c"><path d="M42 8h36v26c0 10 24 20 24 44v176a20 20 0 0 1-20 20H38a20 20 0 0 1-20-20V78c0-24 24-34 24-44z"/></clipPath></defs>
+    <rect x="40" y="2" width="40" height="14" rx="5" fill="var(--deep)"/>
+    <g clip-path="url(#c)">
+      <rect width="120" height="280" fill="var(--aqua)"/>
+      <g class="water"><rect x="0" y="90" width="120" height="200" fill="var(--green)"/><path d="M0 90q15-9 30 0t30 0 30 0 30 0v8H0z" fill="var(--green)"/></g>
+    </g>
+    <path d="M42 8h36v26c0 10 24 20 24 44v176a20 20 0 0 1-20 20H38a20 20 0 0 1-20-20V78c0-24 24-34 24-44z" fill="none" stroke="var(--deep)" stroke-width="4"/>
+  </svg>
+</div>
+
+<section id="problem" class="deep">
+  <div class="wrap two">
+    <div>
+      <h2>Small bottles, big pile.</h2>
+      <p>Single-use plastic bottles are easy to grab and just as easy to throw away. At school, that can add up to a steady stream of waste, and most of us rarely stop to think about it.</p>
+    </div>
+    <ul class="facts">
+      <li>Disposable plastic bottles add to the growing amount of plastic waste.</li>
+      <li>Plastic can stay in the environment for a very long time.</li>
+      <li>Over time, plastic can break into microplastics that may enter ecosystems and food chains.</li>
+      <li>Everyday choices are easy to overlook, so the first step is simply noticing them.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="trial">
+  <div class="wrap">
+    <h2>A one-month trial. Nothing more to start.</h2>
+    <p>We are not asking for a permanent change. We are proposing a simple trial to see how a small habit works in practice.</p>
+    <ol class="steps">
+      <li><h3>Bring</h3><p>Students bring a reusable water bottle to school.</p></li>
+      <li><h3>Refill</h3><p>They refill it whenever they need water.</p></li>
+      <li><h3>Reuse</h3><p>The same bottle replaces regularly buying single-use bottles.</p></li>
+      <li><h3>Remind</h3><p>Simple reminders help everyone keep the habit going.</p></li>
+      <li><h3>Review</h3><p>We look at participation and, if data is available, compare disposable bottle use before and during the trial.</p></li>
+    </ol>
+    <p class="note">This is a proposal. It has not yet been approved by the school, and no refill stations have been confirmed.</p>
+  </div>
+</section>
+
+<section id="why" class="tint">
+  <div class="wrap">
+    <h2>Two good reasons to try it</h2>
+    <div class="reasons">
+      <div class="reason">
+        <h3>Reduce plastic waste</h3>
+        <p>Reusable bottles can replace many single-use bottles over time. The more students take part, the less disposable bottle waste the school may produce.</p>
+      </div>
+      <div class="reason">
+        <h3>Build sustainable habits</h3>
+        <p>School is a good place to practise responsible behaviour. Carrying a reusable bottle is a simple daily action that builds awareness of waste and consumption.</p>
+      </div>
+    </div>
+    <h2 style="margin-top:3rem;font-size:1.6rem">"But what if students forget?"</h2>
+    <div class="qa">
+      <div><strong>The concern</strong>Some students may forget their bottles or find a new routine inconvenient.</div>
+      <div><strong>Our answer</strong>That is why this starts as a one-month trial, not a permanent rule. Simple reminders help students build the habit step by step.</div>
+    </div>
+  </div>
+</section>
+
+<section id="evidence">
+  <div class="wrap">
+    <h2>Where the facts come from</h2>
+    <p>The environmental information on this page is based on reliable public sources. Please check the originals for current data.</p>
+    <ul class="src">
+      <li><b><a href="https://www.epa.gov" target="_blank" rel="noopener">U.S. Environmental Protection Agency (EPA)</a></b>Plastic waste and its environmental impacts.</li>
+      <li><b><a href="https://www.unep.org" target="_blank" rel="noopener">UN Environment Programme (UNEP)</a></b>Plastic pollution and marine litter.</li>
+      <li><b><a href="https://www.noaa.gov" target="_blank" rel="noopener">National Oceanic and Atmospheric Administration (NOAA)</a></b>Marine debris and microplastics.</li>
+    </ul>
+    <p class="note">This project will not end plastic pollution. It is a practical way to help reduce single-use plastic waste at our school.</p>
+  </div>
+</section>
+
+<section class="deep cta">
+  <div class="wrap">
+    <h2>Let's try one month.</h2>
+    <p>We ask the school administration and teachers to support a one-month Bring Your Own Bottle trial. One simple habit can be a good place to begin.</p>
+    <p><a class="btn" href="#top">Back to top</a></p>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">Bring Your Own Bottle · A student campaign · Refill Today, Reduce Tomorrow.</footer>
+</body>
+</html>
